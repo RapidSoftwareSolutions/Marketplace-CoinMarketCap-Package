@@ -1,0 +1,242 @@
+{
+    "package": "CoinMarketCap",
+    "tagline": "CoinMarketCap API",
+    "description": "Cryptocurrency market cap rankings, charts, and more!",
+    "image": "https:\/\/logo.clearbit.com\/coinmarketcap.com",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-CoinMarketCap-Package",
+    "keywords": [
+        "API",
+        "Cryptocurrency",
+        "Market",
+        "Trade",
+        "Price",
+        "Bitcoin"
+    ],
+    "accounts": {
+        "domain": "coinmarketcap.com",
+        "credentials": []
+    },
+    "blocks": [
+        {
+            "name": "getCryptocurrenciesList",
+            "description": "Get cryptocurrencies list.",
+            "args": [
+                {
+                    "name": "start",
+                    "type": "Number",
+                    "info": "return results from rank [start] and above.",
+                    "required": false
+                },
+                {
+                    "name": "limit",
+                    "type": "Number",
+                    "info": "return a maximum of [limit] results (default is 100, use 0 to return all results)",
+                    "required": false
+                },
+                {
+                    "name": "convert",
+                    "type": "Select",
+                    "options": [
+                        "AUD",
+                        "BRL",
+                        "CAD",
+                        "CHF",
+                        "CLP",
+                        "CNY",
+                        "CZK",
+                        "DKK",
+                        "EUR",
+                        "GBP",
+                        "HKD",
+                        "HUF",
+                        "IDR",
+                        "ILS",
+                        "INR",
+                        "JPY",
+                        "KRW",
+                        "MXN",
+                        "MYR",
+                        "NOK",
+                        "NZD",
+                        "PHP",
+                        "PKR",
+                        "PLN",
+                        "RUB",
+                        "SEK",
+                        "SGD",
+                        "THB",
+                        "TRY",
+                        "TWD",
+                        "ZAR"
+                    ],
+                    "info": "Return price, 24h volume, and market cap in terms of another currency.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.coinmarketcap.com\/v1\/ticker\/",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "start",
+                            "limit",
+                            "convert"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getCryptocurrency",
+            "description": "Get Specific Currency.",
+            "args": [
+                {
+                    "name": "id",
+                    "type": "Number",
+                    "info": "return results from rank [start] and above.",
+                    "required": false
+                },
+                {
+                    "name": "convert",
+                    "type": "Select",
+                    "options": [
+                        "AUD",
+                        "BRL",
+                        "CAD",
+                        "CHF",
+                        "CLP",
+                        "CNY",
+                        "CZK",
+                        "DKK",
+                        "EUR",
+                        "GBP",
+                        "HKD",
+                        "HUF",
+                        "IDR",
+                        "ILS",
+                        "INR",
+                        "JPY",
+                        "KRW",
+                        "MXN",
+                        "MYR",
+                        "NOK",
+                        "NZD",
+                        "PHP",
+                        "PKR",
+                        "PLN",
+                        "RUB",
+                        "SEK",
+                        "SGD",
+                        "THB",
+                        "TRY",
+                        "TWD",
+                        "ZAR"
+                    ],
+                    "info": "Return price, 24h volume, and market cap in terms of another currency.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.coinmarketcap.com\/v1\/ticker\/{$data['id']}",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "convert"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        },
+        {
+            "name": "getGlobalData",
+            "description": "Get Global Data.",
+            "args": [
+                {
+                    "name": "convert",
+                    "type": "Select",
+                    "options": [
+                        "AUD",
+                        "BRL",
+                        "CAD",
+                        "CHF",
+                        "CLP",
+                        "CNY",
+                        "CZK",
+                        "DKK",
+                        "EUR",
+                        "GBP",
+                        "HKD",
+                        "HUF",
+                        "IDR",
+                        "ILS",
+                        "INR",
+                        "JPY",
+                        "KRW",
+                        "MXN",
+                        "MYR",
+                        "NOK",
+                        "NZD",
+                        "PHP",
+                        "PKR",
+                        "PLN",
+                        "RUB",
+                        "SEK",
+                        "SGD",
+                        "THB",
+                        "TRY",
+                        "TWD",
+                        "ZAR"
+                    ],
+                    "info": "Return price, 24h volume, and market cap in terms of another currency.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/api.coinmarketcap.com\/v1\/global\/",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "convert"
+                        ]
+                    }
+                ]
+            },
+            "callbacks": [
+                {
+                    "name": "error",
+                    "info": "Error"
+                },
+                {
+                    "name": "success",
+                    "info": "Success"
+                }
+            ]
+        }
+    ]
+}
