@@ -28,7 +28,7 @@ Get Specific Currency.
 
 | Field  | Type  | Description
 |--------|-------|----------
-| id     | Number| return results from rank `start` and above.
+| id     | String | Id of the currency.
 | convert| Select| Return price, 24h volume, and market cap in terms of another currency.
 
 ## CoinMarketCap.getGlobalData

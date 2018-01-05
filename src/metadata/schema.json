@@ -104,8 +104,8 @@
             "args": [
                 {
                     "name": "id",
-                    "type": "Number",
-                    "info": "return results from rank [start] and above.",
+                    "type": "String",
+                    "info": "Id of the currency.",
                     "required": false
                 },
                 {
